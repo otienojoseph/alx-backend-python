@@ -1,8 +1,9 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """async coroutine"""
 
 import asyncio
 import random
+
 
 async def wait_random(max_delay=10):
     """
