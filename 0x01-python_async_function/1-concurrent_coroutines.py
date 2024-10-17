@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """concurrent coroutine"""
 
+import asyncio
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
@@ -14,12 +15,10 @@ async def wait_n(n: int, max_delay: int) -> list[float]:
         max_delay (int): The maximum delay time in seconds
 
     Return:
-        list[float]: The list of delays in ascending order without using sort()
+        list[float]: The list of delays in *ascending order withoutusing
+         using sort()*
     """
-    delays = []
-
-    for _ in range(n):
-        delay = await wait_random(max_delay)
-        delays.append(delay)
+    tasks = [asyncio.create_task(wait_random(max_delay)) for _ in range(n)]
+    delays = [await task for task in asyncio.as_completed(tasks)]
 
     return delays
