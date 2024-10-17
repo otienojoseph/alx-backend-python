@@ -7,13 +7,14 @@ import random
 
 async def wait_random(max_delay=10):
     """
-    async function that takes in an integer argument and waits for a
-    random delay between 0 max_delay seconds and eventually returns it.
+    async coroutine that waits for a random delay and returns it.
 
     Args:
-        max_delay: (int)
-    Return - returns the max_delay
+        max_delay (int): The maximum delay in seconds. Defaults to 10.
+
+    Returns:
+        float: The random delay that the function waited for.
     """
-    random_num = random.uniform(0, max_delay)
-    await asyncio.sleep(random_num)
-    return random_num
+    delay = random.uniform(0, max_delay)
+    await asyncio.sleep(delay)
+    return delay
