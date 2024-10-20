@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """sum_mixed_list function"""
 
-from typing import Union
+from typing import List, Union
 
+myType = Union[int, float]
 
-def sum_mixed_list(mxd_lst: Union[int, float]) -> float:
+def sum_mixed_list(mxd_lst: List[myType]) -> float:
     """
     Funtion that takes in a list of integers and floats and
     returns their sum
@@ -17,6 +18,7 @@ def sum_mixed_list(mxd_lst: Union[int, float]) -> float:
     """
     total = 0
     for num in mxd_lst:
-        total += num
+        if (isinstance(num, (int, float))):
+            total += num
 
     return total
