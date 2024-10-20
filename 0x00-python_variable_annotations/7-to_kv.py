@@ -6,7 +6,7 @@ from typing import Tuple, Union
 myType = Union[int, float]
 
 
-def to_kv(k: str, v: myType) -> Tuple[str, myType]:
+def to_kv(k: str, v: myType) -> Tuple[str, float]:
     """
     Function that takes string and an int OR float and returns Tuple
 
