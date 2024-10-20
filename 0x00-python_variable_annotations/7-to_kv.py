@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """7-to_kv function"""
 
-from typing import Tuple
+from typing import Tuple, Union
+
+myType = Union[int, float]
 
 
-def to_kv(k: str, v: int | float) -> Tuple[str, int | float]:
+def to_kv(k: str, v: myType) -> Tuple[str, myType]:
     """
     Function that takes string and an int OR float and returns Tuple
 
